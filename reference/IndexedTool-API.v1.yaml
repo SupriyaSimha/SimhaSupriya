@@ -1,0 +1,47 @@
+openapi: 3.0.0
+info:
+  title: IndexedTool API
+  version: '1.0'
+  description: DHI_Indexed_Tool is the one application which is used to classify the Ecourt case type into DHI case types.
+  contact:
+    name: Supriya
+    email: supriya260795@gmail.com
+servers:
+  - url: 'http://dhiec6:8080/DHIDocServer/json/service/'
+paths:
+  getStates:
+    get:
+      summary: getStates
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  stateCode:
+                    type:
+                      - integer
+                      - number
+                  stateName:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    states:
+                      - stateCode: 1
+                        stateName: Karnataka
+                      - stateCode: 2
+                        stateName: Maharashtra
+                    status: OK
+      operationId: get-getStates
+      description: This GET request is for returning the States of the Ecourt.
+      parameters: []
+    parameters: []
+components:
+  schemas: {}
+  securitySchemes:
+    API Key - 1:
+      type: oauth2
